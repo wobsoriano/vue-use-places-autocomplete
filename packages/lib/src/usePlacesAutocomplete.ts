@@ -1,8 +1,8 @@
 import { onMounted, readonly, Ref, ref } from 'vue-demi';
 import { debouncedWatch } from '@vueuse/core';
 import { Loader } from '@googlemaps/js-api-loader';
-import { GooglePlacesAutocompleteOptions, AutocompletionRequest } from './GooglePlacesAutocomplete.types'
-import autocompletionRequestBuilder from './helpers/autocompletionRequestBuilder'
+import { GooglePlacesAutocompleteOptions, AutocompletionRequest } from './GooglePlacesAutocomplete.types';
+import autocompletionRequestBuilder from './helpers/autocompletionRequestBuilder';
 
 export default function usePlacesAutocomplete(query: Ref<string>, {
     apiKey = '',
