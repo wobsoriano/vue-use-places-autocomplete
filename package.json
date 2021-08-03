@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "./dist/v-use-places-autocomplete.umd.js",
   "module": "./dist/v-use-places-autocomplete.es.js",
-  "types": "./index.d.ts",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/v-use-places-autocomplete.es.js",
@@ -15,13 +15,29 @@
     "build": "tsc && vite build"
   },
   "devDependencies": {
+    "@types/google.maps": "^3.45.6",
+    "@types/node": "^16.4.10",
     "typescript": "^4.3.2",
-    "vite": "^2.4.4"
+    "vite": "^2.4.4",
+    "vue": "^3.0.11"
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.12.1",
+    "@vueuse/core": "^5.2.0",
     "vue-demi": "^0.11.2"
   },
-  "files": ["dist"],
+  "peerDependencies": {
+    "@vue/composition-api": "^1.0.0-rc.1",
+    "vue": "^2.0.0 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/wobsoriano/v-use-places-autocomplete.git"
