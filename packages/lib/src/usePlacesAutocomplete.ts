@@ -15,16 +15,16 @@ export default function usePlacesAutocomplete(query: Ref<string>, {
 }: GooglePlacesAutocompleteOptions) {
     const placesService = ref<google.maps.places.AutocompleteService | undefined>(undefined);
     const sessionToken = ref<google.maps.places.AutocompleteSessionToken | undefined>(undefined);
-    const fetchSuggestions = ref<google.maps.places.AutocompletePrediction[]>([])
+    const suggestions = ref<google.maps.places.AutocompletePrediction[]>([])
 
     debouncedWatch(query, () => {
         if (!placesService.value) {
-            fetchSuggestions.value = [];
+          suggestions.value = [];
             return;
         }
 
         if (query.value.length < minLengthAutocomplete) {
-            fetchSuggestions.value = []
+          suggestions.value = []
             return;
         }
 
@@ -35,8 +35,8 @@ export default function usePlacesAutocomplete(query: Ref<string>, {
               autocompletionReq,
               query.value,
               withSessionToken && sessionToken.value,
-            ), (suggestions) => {
-                fetchSuggestions.value = suggestions || [] 
+            ), (fetchSuggestions) => {
+              suggestions.value = fetchSuggestions || [] 
             },
         );
     }, { debounce })
@@ -71,8 +71,8 @@ export default function usePlacesAutocomplete(query: Ref<string>, {
     }
 
     return {
-        fetchSuggestions,
-        sessionToken,
-        refreshSessionToken
+      suggestions,
+      sessionToken,
+      refreshSessionToken
     }
 }

@@ -43,7 +43,9 @@ export default defineComponent({
 
 ```js
 const {
-    suggestions
+    suggestions,
+    sessionToken,
+    refreshSessionToken
 } = usePlacesAutocomplete(query, options);
 ```
 
@@ -58,3 +60,11 @@ const {
 | `minLengthAutocomplete` | number | `0` | Defines a minimum number of characters needed on the input in order to make requests to the Google's API. |
 | `onLoadFailed` | function | `console.error` | Function to be called when the injection of the Google Maps JavaScript API fails due to network error. |
 | `withSessionToken` | boolean | `false` | If this is set to true, the composable will handle changing the sessionToken on every session. To learn more about how this works refer to [Google Places Session Token docs](https://developers.google.com/maps/documentation/places/web-service/session-tokens). |
+
+### Return object
+
+| Key | Type | Default | Description |
+| :----- | :-------- | :---------- | :---------- |
+| `suggestions` | array | `[]` | Contains the [autocomplete predictions](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletePrediction). |
+| `sessionToken` | [string | undefined] | `undefined` | Current [sessionToken](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service) being used. |
+| `refreshSessionToken` | function | - | This function allows you to refresh the sessionToken being used. |
