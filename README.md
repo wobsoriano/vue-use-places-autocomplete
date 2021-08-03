@@ -14,7 +14,7 @@ yarn add v-use-places-autocomplete
 <template>
   <input type="text" v-model="query" placeholder="Search a place..." />
   <ul>
-    <li v-for="item in fetchSuggestions" :key="item.place_id" v-text="item.description" />
+    <li v-for="item in suggestions" :key="item.place_id" v-text="item.description" />
   </ul>
 </template>
 
@@ -25,16 +25,36 @@ import usePlacesAutocomplete from 'v-use-places-autocomplete'
 export default defineComponent({
   setup() {
     const query = ref('')
-    const { fetchSuggestions } = usePlacesAutocomplete(query, {
+    const { suggestions } = usePlacesAutocomplete(query, {
       apiKey: 'YOUR_API_KEY',
       minLengthAutocomplete: 2
     })
 
     return {
       query,
-      fetchSuggestions
+      suggestions
     }
   }
 })
 </script>
 ```
+
+## API
+
+```js
+const {
+    suggestions
+} = usePlacesAutocomplete(query, options);
+```
+
+### Options
+
+| Key | Type | Default | Description |
+| :----- | :-------- | :---------- | :---------- |
+| `apiKey` | string | `""` | If this parameter is passed, the component will inject the Google Maps JavaScript API usign this apiKey. So there's no need to manually add the script tag to yout HTML document. |
+| `apiOptions` | [object](https://developers.google.com/maps/documentation/javascript/localization) | `{}` | Object to configure the google script to inject. |
+| `autocompletionRequest` | [object](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest) | `{}` | Autocompletion request object to add restrictions to the search. |
+| `debounce` | number | `300` | The number of milliseconds to delay before making a call to Google Maps API. |
+| `minLengthAutocomplete` | number | `0` | Defines a minimum number of characters needed on the input in order to make requests to the Google's API. |
+| `onLoadFailed` | function | `console.error` | Function to be called when the injection of the Google Maps JavaScript API fails due to network error. |
+| `withSessionToken` | function | `console.error` | If this is set to true, the composable will handle changing the sessionToken on every session. To learn more about how this works refer to [Google Places Session Token docs](https://developers.google.com/maps/documentation/places/web-service/session-tokens). |
