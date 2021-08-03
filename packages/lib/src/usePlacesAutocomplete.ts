@@ -1,4 +1,4 @@
-import { onMounted, readonly, Ref, ref } from 'vue-demi';
+import { onMounted, Ref, ref } from 'vue-demi';
 import { debouncedWatch } from '@vueuse/core';
 import { Loader } from '@googlemaps/js-api-loader';
 import { GooglePlacesAutocompleteOptions, AutocompletionRequest } from './GooglePlacesAutocomplete.types';
@@ -71,8 +71,8 @@ export default function usePlacesAutocomplete(query: Ref<string>, {
     }
 
     return {
-        fetchSuggestions: readonly(fetchSuggestions),
-        sessionToken: readonly(sessionToken),
+        fetchSuggestions,
+        sessionToken,
         refreshSessionToken
     }
 }
