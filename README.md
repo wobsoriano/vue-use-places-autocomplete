@@ -13,6 +13,7 @@ yarn add v-use-places-autocomplete
 ```html
 <template>
   <input type="text" v-model="query" placeholder="Search a place..." />
+  <div v-show="loading">Loading...</div>
   <ul>
     <li v-for="item in suggestions" :key="item.place_id" v-text="item.description" />
   </ul>
@@ -25,14 +26,15 @@ import usePlacesAutocomplete from 'v-use-places-autocomplete'
 export default defineComponent({
   setup() {
     const query = ref('')
-    const { suggestions } = usePlacesAutocomplete(query, {
+    const { suggestions, loading } = usePlacesAutocomplete(query, {
       apiKey: 'YOUR_API_KEY',
       minLengthAutocomplete: 2
     })
 
     return {
       query,
-      suggestions
+      suggestions,
+      loading
     }
   }
 })
@@ -66,5 +68,6 @@ const {
 | Key | Type | Default | Description |
 | :----- | :-------- | :---------- | :---------- |
 | `suggestions` | [array](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletePrediction) | `[]` | Contains the autocomplete predictions. |
+| `loading` | boolean | `false` | Indicates the status of a request is pending or has completed. |
 | `sessionToken` | string \| undefined | `undefined` | Current [sessionToken](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service) being used. |
 | `refreshSessionToken` | function | - | This function allows you to refresh the sessionToken being used. |

@@ -1,7 +1,8 @@
 <template>
   <input type="text" v-model="query" placeholder="Search a place..." />
+  <div v-show="loading">Loading...</div>
   <ul>
-    <li v-for="item in fetchSuggestions" :key="item.place_id" v-text="item.description" />
+    <li v-for="item in suggestions" :key="item.place_id" v-text="item.description" />
   </ul>
 </template>
 
@@ -10,12 +11,12 @@ import { ref, watchEffect } from 'vue'
 import usePlacesAutocomplete from 'v-use-places-autocomplete'
 
 const query = ref('')
-const { fetchSuggestions } = usePlacesAutocomplete(query, {
+const { suggestions, loading } = usePlacesAutocomplete(query, {
   apiKey: import.meta.env.VITE_PLACES_API_KEY as string,
   minLengthAutocomplete: 2
 })
 
 watchEffect(() => {
-  console.log(JSON.parse(JSON.stringify(fetchSuggestions.value)))
+  console.log(JSON.parse(JSON.stringify(suggestions.value)))
 })
 </script>
