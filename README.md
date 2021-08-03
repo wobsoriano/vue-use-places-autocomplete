@@ -66,5 +66,5 @@ const {
 | Key | Type | Default | Description |
 | :----- | :-------- | :---------- | :---------- |
 | `suggestions` | [array](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletePrediction) | `[]` | Contains the autocomplete predictions. |
-| `sessionToken` | string|undefined | `undefined` | Current [sessionToken](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service) being used. |
+| `sessionToken` | string \| undefined | `undefined` | Current [sessionToken](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service) being used. |
 | `refreshSessionToken` | function | - | This function allows you to refresh the sessionToken being used. |
