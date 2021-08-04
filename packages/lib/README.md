@@ -18,7 +18,6 @@ yarn add v-use-places-autocomplete
 ```html
 <template>
   <input type="text" v-model="query" placeholder="Search a place..." />
-  <div v-show="loading">Loading...</div>
   <ul>
     <li v-for="item in suggestions" :key="item.place_id" v-text="item.description" />
   </ul>
@@ -31,15 +30,13 @@ import usePlacesAutocomplete from 'v-use-places-autocomplete'
 export default defineComponent({
   setup() {
     const query = ref('')
-    const { suggestions, loading } = usePlacesAutocomplete(query, {
-      apiKey: 'YOUR_API_KEY',
-      minLengthAutocomplete: 2
+    const { suggestions } = usePlacesAutocomplete(query, {
+      apiKey: 'YOUR_API_KEY'
     })
 
     return {
       query,
-      suggestions,
-      loading
+      suggestions
     }
   }
 })
@@ -51,6 +48,7 @@ export default defineComponent({
 ```js
 const {
     suggestions,
+    loading,
     sessionToken,
     refreshSessionToken
 } = usePlacesAutocomplete(query, options);
@@ -76,9 +74,3 @@ const {
 | `loading` | boolean | `false` | Indicates the status of a request is pending or has completed. |
 | `sessionToken` | string \| undefined | `undefined` | Current [sessionToken](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service) being used. |
 | `refreshSessionToken` | function | - | This function allows you to refresh the sessionToken being used. |
-
-Note: You can load the places API using the `script tag` instead of passing the `apiKey` to the composable.
-
-```html
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
-```
