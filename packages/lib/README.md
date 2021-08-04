@@ -58,7 +58,7 @@ const {
 
 | Key | Type | Default | Description |
 | :----- | :-------- | :---------- | :---------- |
-| `apiKey` | string | `""` | If this parameter is passed, the component will inject the Google Maps JavaScript API usign this apiKey. So there's no need to manually add the script tag to your HTML document. |
+| `apiKey` | string | `""` | If this parameter is passed, the component will inject the Google Maps JavaScript API using this apiKey. So there's no need to manually add the script tag to your HTML document. |
 | `apiOptions` | [object](https://developers.google.com/maps/documentation/javascript/localization) | `{}` | Object to configure the google script to inject. |
 | `autocompletionRequest` | [object](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest) | `{}` | Autocompletion request object to add restrictions to the search. |
 | `debounce` | number | `300` | The number of milliseconds to delay before making a call to Google Maps API. |
@@ -74,3 +74,38 @@ const {
 | `loading` | boolean | `false` | Indicates the status of a request is pending or has completed. |
 | `sessionToken` | string \| undefined | `undefined` | Current [sessionToken](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service) being used. |
 | `refreshSessionToken` | function | - | This function allows you to refresh the sessionToken being used. |
+
+## Utilities
+
+### getGeocode
+
+Converts an `address` or `location` or `placeId` and optionally `bounds`, `componentRestrictions`, `region`. It'll be passed as [Geocoding Requests](https://developers.google.com/maps/documentation/javascript/geocoding#GeocodingRequests).
+
+```typescript
+const parameter = {
+  address: "Cebu-Cordova Link Expressway Corp., Antuwanga, Cebu City, Cebu, Philippines",
+  // or
+  placeId: "ChIJk6_7UFmdqTMRgFAxl4KEnUQ",
+};
+
+const results = await getGeocode(parameter);
+console.log('Geocoding results: ', results);
+```
+
+### getLatLng
+
+Allows to get the latitude and longitude from the result object of `getGeocode`.
+
+```typescript
+const parameter = {
+  address: "Cebu-Cordova Link Expressway Corp., Antuwanga, Cebu City, Cebu, Philippines",
+  // or
+  placeId: "ChIJk6_7UFmdqTMRgFAxl4KEnUQ",
+};
+
+const results = await getGeocode(parameter);
+const latLng = await getLatLng(results[0]);
+
+const { lat, lng } = latLng;
+console.log('Coordinates: ', { lat, lng });
+```
