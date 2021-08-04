@@ -13,7 +13,6 @@ yarn add v-use-places-autocomplete
 ```html
 <template>
   <input type="text" v-model="query" placeholder="Search a place..." />
-  <div v-show="loading">Loading...</div>
   <ul>
     <li v-for="item in suggestions" :key="item.place_id" v-text="item.description" />
   </ul>
@@ -26,15 +25,13 @@ import usePlacesAutocomplete from 'v-use-places-autocomplete'
 export default defineComponent({
   setup() {
     const query = ref('')
-    const { suggestions, loading } = usePlacesAutocomplete(query, {
-      apiKey: 'YOUR_API_KEY',
-      minLengthAutocomplete: 2
+    const { suggestions } = usePlacesAutocomplete(query, {
+      apiKey: 'YOUR_API_KEY'
     })
 
     return {
       query,
-      suggestions,
-      loading
+      suggestions
     }
   }
 })
@@ -46,6 +43,7 @@ export default defineComponent({
 ```js
 const {
     suggestions,
+    loading,
     sessionToken,
     refreshSessionToken
 } = usePlacesAutocomplete(query, options);
