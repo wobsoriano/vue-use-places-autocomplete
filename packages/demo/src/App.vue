@@ -18,7 +18,6 @@ const { suggestions, loading } = usePlacesAutocomplete(query, {
 
 watchEffect(async () => {
   if (suggestions.value.length) {
-    console.log(JSON.parse(JSON.stringify(suggestions.value)))
     const geocode = await getGeocode({
       placeId: suggestions.value[0].place_id
     });
@@ -27,9 +26,4 @@ watchEffect(async () => {
     console.log('getLatLng result: ', latLng);
   }
 })
-
-// const results = await getGeocode({
-//   placeId: suggestions.value[0].place_id
-// });
-// const latLng = await getLatLng(geocode[0]);
 </script>
