@@ -1,13 +1,9 @@
-import usePlacesAutocomplete from './usePlacesAutocomplete';
+import usePlacesAutocomplete from './use-places-autocomplete';
 import getLatLng from './utils/getLatLng';
-import geocodeByAddress from './utils/geocodeByAddress';
-import geocodeByLatLng from './utils/geocodeByLatLng';
-import geocodeByPlaceId from './utils/geocodeByPlaceId';
+import getGeocode from './utils/getGeocode';
 
 export {
   getLatLng,
-  geocodeByAddress,
-  geocodeByLatLng,
-  geocodeByPlaceId,
+  getGeocode
 };
 export default usePlacesAutocomplete;

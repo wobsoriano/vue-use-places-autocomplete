@@ -1,10 +1,5 @@
 import { LoaderOptions } from '@googlemaps/js-api-loader';
 
-export type GooglePlacesAutocompleteHandle = {
-  getSessionToken: () => google.maps.places.AutocompleteSessionToken | undefined;
-  refreshSessionToken: () => void;
-}
-
 export interface LatLng {
   lat: number;
   lng: number;

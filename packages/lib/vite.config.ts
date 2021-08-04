@@ -2,12 +2,12 @@ import { defineConfig } from 'vite';
 import path from 'path';
 import typescript from '@rollup/plugin-typescript'
 
-const resolvePath = (str: string) => path.resolve(__dirname, str)
+const resolvePath = (str: string) => path.resolve(__dirname, str);
 
 module.exports = defineConfig({
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
+      entry: resolvePath('src/index.ts'),
       name: 'VUsePlacesAutocomplete',
       fileName: format => `v-use-places-autocomplete.${format}.js`  
     },
