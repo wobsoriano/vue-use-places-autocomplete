@@ -31,7 +31,8 @@ export default defineComponent({
   setup() {
     const query = ref('')
     const { suggestions } = usePlacesAutocomplete(query, {
-      apiKey: 'YOUR_API_KEY'
+      debounce: 500,
+      minLengthAutocomplete: 3
     })
 
     return {
@@ -109,3 +110,12 @@ const latLng = await getLatLng(results[0]);
 const { lat, lng } = latLng;
 console.log('Coordinates: ', { lat, lng });
 ```
+
+### Credits
+
+- [react-google-places-autocomplete](https://github.com/tintef/react-google-places-autocomplete) - React component for Google Places Autocomplete.
+- [use-places-autocomplete](https://github.com/wellyshen/use-places-autocomplete) - React hook for Google Maps Places Autocomplete.
+
+### License
+
+[MIT License](http://opensource.org/licenses/MIT).
