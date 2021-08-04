@@ -2,7 +2,7 @@
 
 📍 Vue composable for Google Maps Places Autocomplete.
 
-Though not a fork, this composable is hardly inspired by [react-google-places-autocomplete](https://github.com/tintef/react-google-places-autocomplete) and [use-places-autocomplete](https://github.com/wellyshen/use-places-autocomplete).
+Though not a fork, this composable is fully inspired by [react-google-places-autocomplete](https://github.com/tintef/react-google-places-autocomplete) and [use-places-autocomplete](https://github.com/wellyshen/use-places-autocomplete).
 
 ## Install
 
