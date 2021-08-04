@@ -117,6 +117,8 @@ console.log('Coordinates: ', { lat, lng });
 
 - [react-google-places-autocomplete](https://github.com/tintef/react-google-places-autocomplete) - React component for Google Places Autocomplete.
 - [use-places-autocomplete](https://github.com/wellyshen/use-places-autocomplete) - React hook for Google Maps Places Autocomplete.
+- [vue-demi](https://github.com/vueuse/vue-demi/) - Creates Universal Library for Vue 2 & 3.
+- [vue-use](https://vueuse.org/) - Collection of essential Vue Composition Utilities.
 
 ### License
 
