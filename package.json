@@ -8,6 +8,6 @@
       "lib:watch": "yarn workspace v-use-places-autocomplete run build:watch",
       "lib": "yarn workspace v-use-places-autocomplete",
       "demo": "yarn workspace demo",
-      "copy:readme": "cp README.md packages/lib/README.md"
+      "copy:md": "cp README.md packages/lib/README.md && cp LICENSE.md packages/lib/LICENSE.md"
     }
 }

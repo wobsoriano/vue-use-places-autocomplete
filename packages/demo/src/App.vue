@@ -7,16 +7,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue'
+import { ref } from 'vue'
 import usePlacesAutocomplete from 'v-use-places-autocomplete'
 
-const query = ref('')
+const query = ref('manila')
 const { suggestions, loading } = usePlacesAutocomplete(query, {
   apiKey: import.meta.env.VITE_PLACES_API_KEY as string,
   minLengthAutocomplete: 2
-})
-
-watchEffect(() => {
-  console.log(JSON.parse(JSON.stringify(suggestions.value)))
 })
 </script>
