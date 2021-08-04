@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import path from 'path';
-import typescript from '@rollup/plugin-typescript'
+import dts from 'vite-plugin-dts'
 
 const resolvePath = (str: string) => path.resolve(__dirname, str);
 
@@ -18,19 +18,18 @@ module.exports = defineConfig({
           vue: 'Vue'
         },
         exports: 'named'
-      },
-      plugins: [
-        typescript({
-          'target': 'es2020',
-          'rootDir': resolvePath('src'),
-          'declaration': true,
-          'declarationDir': resolvePath('dist'),
-          exclude: resolvePath('node_modules/**'),
-          allowSyntheticDefaultImports: true
-        })
-      ]
+      }
     }
   },
+  plugins: [
+    dts({
+      insertTypesEntry: true,
+      compilerOptions: {
+        noEmit: false,
+        declaration: true
+      }
+    })
+  ],
   optimizeDeps: {
     exclude: ['vue-demi']
   }
