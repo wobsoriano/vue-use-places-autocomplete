@@ -11,6 +11,11 @@ yarn add v-use-places-autocomplete
 ## Example
 
 ```html
+<!-- Load the library using the script tag -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+```
+
+```html
 <template>
   <input type="text" v-model="query" placeholder="Search a place..." />
   <div v-show="loading">Loading...</div>
