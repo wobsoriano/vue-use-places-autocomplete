@@ -30,7 +30,7 @@ yarn add v-use-places-autocomplete
 
 <script>
 import { defineComponent, ref } from 'vue' // or @vue/composition-api
-import usePlacesAutocomplete from 'v-use-places-autocomplete'
+import { usePlacesAutocomplete } from 'v-use-places-autocomplete'
 
 export default defineComponent({
   setup() {
