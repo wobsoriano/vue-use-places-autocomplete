@@ -78,7 +78,7 @@ export default function usePlacesAutocomplete(query: Ref<string>, {
             await new Loader({ apiKey, ...{ libraries: ['places'], ...apiOptions }}).load();
           }
           initializeService();
-        } catch (error) {
+        } catch (error: any) {
           onLoadFailed(error);
         }
       }

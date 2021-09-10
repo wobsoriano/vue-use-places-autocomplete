@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue'
-import usePlacesAutocomplete, { getGeocode, getLatLng } from 'v-use-places-autocomplete'
+import { getGeocode, getLatLng, usePlacesAutocomplete } from 'v-use-places-autocomplete'
 
 const query = ref('manila')
 const { suggestions, loading } = usePlacesAutocomplete(query, {
