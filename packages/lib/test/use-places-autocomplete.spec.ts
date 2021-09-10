@@ -1,7 +1,7 @@
 import { ref } from 'vue';
 import { loadEnv } from 'vite';
 import { mountComposition } from 'vue-composition-test-utils'
-import usePlacesAutocomplete from '../src'
+import { usePlacesAutocomplete } from '../src'
 
 const mockFetchingData = () => new Promise(res => setTimeout(res, 1000));
 const mockSuggestionsData = [
