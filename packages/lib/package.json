@@ -2,6 +2,11 @@
   "name": "v-use-places-autocomplete",
   "version": "1.0.0",
   "license": "MIT",
+  "keywords": [
+    "vue",
+    "places",
+    "autocomplete"
+  ],
   "main": "./dist/v-use-places-autocomplete.umd.js",
   "module": "./dist/v-use-places-autocomplete.es.js",
   "types": "./dist/index.d.ts",
