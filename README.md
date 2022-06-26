@@ -2,13 +2,13 @@
 
 📍 Vue 3 composable for Google Maps Places Autocomplete.
 
-## Install
+## Installation
 
 ```sh
 pnpm add v-use-places-autocomplete
 ```
 
-## Example
+## Usage
 
 ```html
 <!-- Load the library using the script tag -->
@@ -16,32 +16,23 @@ pnpm add v-use-places-autocomplete
 ```
 
 ```html
+<script setup>
+import { defineComponent, ref } from 'vue'
+import { usePlacesAutocomplete } from 'v-use-places-autocomplete'
+
+const query = ref('')
+const { suggestions } = usePlacesAutocomplete(query, {
+  debounce: 500,
+  minLengthAutocomplete: 3
+})
+</script>
+
 <template>
   <input type="text" v-model="query" placeholder="Search a place..." />
   <ul>
     <li v-for="item in suggestions" :key="item.place_id" v-text="item.description" />
   </ul>
 </template>
-
-<script>
-import { defineComponent, ref } from 'vue' // or @vue/composition-api
-import { usePlacesAutocomplete } from 'v-use-places-autocomplete'
-
-export default defineComponent({
-  setup() {
-    const query = ref('')
-    const { suggestions } = usePlacesAutocomplete(query, {
-      debounce: 500,
-      minLengthAutocomplete: 3
-    })
-
-    return {
-      query,
-      suggestions
-    }
-  }
-})
-</script>
 ```
 
 ## API
@@ -111,7 +102,7 @@ const { lat, lng } = latLng;
 console.log('Coordinates: ', { lat, lng });
 ```
 
-### Credits
+## Credits
 
 - [react-google-places-autocomplete](https://github.com/tintef/react-google-places-autocomplete) - React component for Google Places Autocomplete.
 - [use-places-autocomplete](https://github.com/wellyshen/use-places-autocomplete) - React hook for Google Maps Places Autocomplete.
