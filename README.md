@@ -4,8 +4,8 @@
 
 ## Installation
 
-```sh
-pnpm add v-use-places-autocomplete
+```bash
+$ pnpm add v-use-places-autocomplete # or npm or yarn
 ```
 
 ## Usage
