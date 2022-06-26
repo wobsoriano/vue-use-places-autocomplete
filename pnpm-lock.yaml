@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@googlemaps/js-api-loader': ^1.12.1
+  '@googlemaps/js-api-loader': ^1.14.3
   '@types/google.maps': ^3.45.6
   '@types/jest': ^26.0.24
   '@types/node': ^16.4.10

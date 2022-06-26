@@ -38,7 +38,7 @@
     "vue-composition-test-utils": "^1.0.3"
   },
   "dependencies": {
-    "@googlemaps/js-api-loader": "^1.12.1",
+    "@googlemaps/js-api-loader": "^1.14.3",
     "@vueuse/core": "^6.3.2",
     "vue-demi": "^0.13.1"
   },
