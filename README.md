@@ -32,7 +32,7 @@ const { suggestions } = usePlacesAutocomplete(query, {
 <template>
   <input type="text" v-model="query" placeholder="Search a place..." />
   <ul>
-    <li v-for="item in suggestions" :key="item.place_id" v-text="item.description" />
+    <li v-for="item in suggestions" :key="item.place_id">{{ item.description }}</li>
   </ul>
 </template>
 ```
