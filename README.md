@@ -1,16 +1,11 @@
-# v-use-places-autocomplete
+# vue-use-places-autocomplete
 
-[![npm version](https://badge.fury.io/js/v-use-places-autocomplete.svg)](https://badge.fury.io/js/v-use-places-autocomplete)
-[![bundle size](https://badgen.net/bundlephobia/minzip/v-use-places-autocomplete)](https://bundlephobia.com/result?p=v-use-places-autocomplete)
-
-📍 Vue composable for Google Maps Places Autocomplete.
-
-Though not a fork, this composable is fully inspired by [react-google-places-autocomplete](https://github.com/tintef/react-google-places-autocomplete) and [use-places-autocomplete](https://github.com/wellyshen/use-places-autocomplete).
+📍 Vue 3 composable for Google Maps Places Autocomplete.
 
 ## Install
 
 ```sh
-yarn add v-use-places-autocomplete
+pnpm add v-use-places-autocomplete
 ```
 
 ## Example
@@ -120,7 +115,6 @@ console.log('Coordinates: ', { lat, lng });
 
 - [react-google-places-autocomplete](https://github.com/tintef/react-google-places-autocomplete) - React component for Google Places Autocomplete.
 - [use-places-autocomplete](https://github.com/wellyshen/use-places-autocomplete) - React hook for Google Maps Places Autocomplete.
-- [vue-demi](https://github.com/vueuse/vue-demi/) - Creates Universal Library for Vue 2 & 3.
 - [vue-use](https://vueuse.org/) - Collection of essential Vue Composition Utilities.
 
 ### License

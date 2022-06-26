@@ -1,5 +1,5 @@
-import type { Ref } from 'vue-demi'
-import { onMounted, ref } from 'vue-demi'
+import type { Ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { debouncedWatch, get, set } from '@vueuse/core'
 import { Loader } from '@googlemaps/js-api-loader'
 import type { AutocompletionRequest, GooglePlacesAutocompleteOptions } from './types'

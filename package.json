@@ -32,23 +32,14 @@
     "lint": "eslint .",
     "prepublishOnly": "nr build",
     "release": "bumpp && npm publish",
-    "switch:2": "vue-demi-switch 2 vue2",
-    "switch:3": "vue-demi-switch 3",
     "test": "vitest run"
   },
   "peerDependencies": {
-    "@vue/composition-api": "^1.1.0",
-    "vue": "^2.6.14 || >=3.2.0"
-  },
-  "peerDependenciesMeta": {
-    "@vue/composition-api": {
-      "optional": true
-    }
+    "vue": ">=3.2.0"
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.14.3",
-    "@vueuse/core": "^8.7.5",
-    "vue-demi": "^0.13.1"
+    "@vueuse/core": "^8.7.5"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.25.2",
