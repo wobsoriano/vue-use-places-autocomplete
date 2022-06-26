@@ -3,7 +3,7 @@
  */
 
 import { ref } from 'vue'
-import { describe, expect, it, vitest } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { renderComposable } from 'vue-test-composables'
 import { usePlacesAutocomplete } from '../src'
 
@@ -60,14 +60,14 @@ describe('usePlacesAutocomplete', () => {
   const getMaps = (type: 'success' | 'fail', data: Suggestions = null): any => ({
     maps: {
       places: {
-        AutocompleteService: vitest.fn(() => ({
+        AutocompleteService: vi.fn(() => ({
           getPlacePredictions: (_: any, cb: (dataArg: Suggestions) => void) => {
             setTimeout(() => {
               cb(type === 'success' ? data : null)
             }, 500)
           },
         })),
-        AutocompleteSessionToken: vitest.fn(),
+        AutocompleteSessionToken: vi.fn(),
       },
     },
   })
@@ -104,7 +104,7 @@ describe('usePlacesAutocomplete', () => {
   })
 
   it('should throw error when no Places API and apiKey provided', () => {
-    console.error = vitest.fn()
+    console.error = vi.fn()
     const query = ref('')
 
     // @ts-expect-error: Internal
