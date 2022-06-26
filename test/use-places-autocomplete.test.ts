@@ -1,3 +1,7 @@
+/**
+ * @vitest-environment jsdom
+ */
+
 import { ref } from 'vue'
 import { describe, expect, it, vitest } from 'vitest'
 import { renderComposable } from 'vue-test-composables'
@@ -47,8 +51,8 @@ const mockSuggestionsData = [
   },
 ]
 
-// const apiKey = loadEnv('', process.cwd()).VITE_PLACES_API_KEY
-const apiKey = ''
+// @ts-expect-error: Vite env
+const apiKey = import.meta.env.VITE_PLACES_API_KEY
 
 type Suggestions = google.maps.places.AutocompletePrediction[] | null
 
