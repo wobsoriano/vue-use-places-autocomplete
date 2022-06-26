@@ -18,7 +18,7 @@ npm install vue-use-places-autocomplete
 ```html
 <script setup>
 import { defineComponent, ref } from 'vue'
-import { usePlacesAutocomplete } from 'v-use-places-autocomplete'
+import { usePlacesAutocomplete } from 'vue-use-places-autocomplete'
 
 const query = ref('')
 const { suggestions } = usePlacesAutocomplete(query, {
