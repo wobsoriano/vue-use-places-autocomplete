@@ -24,18 +24,11 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@types/google.maps": "^3.45.6",
-    "@types/jest": "^26.0.24",
+    "@types/google.maps": "^3.49.2",
     "@types/node": "^16.4.10",
-    "@vue/test-utils": "2.0.0-beta.7",
-    "jest": "^27.0.6",
-    "ts-jest": "^27.0.4",
     "tsup": "^6.1.2",
     "typescript": "^4.3.2",
-    "vite": "^2.4.4",
-    "vite-plugin-dts": "^0.7.0",
-    "vue": "^3.0.11",
-    "vue-composition-test-utils": "^1.0.3"
+    "vue": "^3.2.0"
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.14.3",
