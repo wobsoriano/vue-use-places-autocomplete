@@ -1,36 +1,36 @@
-import { defineConfig } from 'vite';
-import path from 'path';
+import path from 'path'
+import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
 
-const resolvePath = (str: string) => path.resolve(__dirname, str);
+const resolvePath = (str: string) => path.resolve(__dirname, str)
 
 module.exports = defineConfig({
   build: {
     lib: {
       entry: resolvePath('src/index.ts'),
       name: 'VUsePlacesAutocomplete',
-      fileName: format => `v-use-places-autocomplete.${format}.js`  
+      fileName: format => `v-use-places-autocomplete.${format}.js`,
     },
     rollupOptions: {
       external: ['vue'],
       output: {
         globals: {
-          vue: 'Vue'
+          vue: 'Vue',
         },
-        exports: 'named'
-      }
-    }
+        exports: 'named',
+      },
+    },
   },
   plugins: [
     dts({
       insertTypesEntry: true,
       compilerOptions: {
         noEmit: false,
-        declaration: true
-      }
-    })
+        declaration: true,
+      },
+    }),
   ],
   optimizeDeps: {
-    exclude: ['vue-demi']
-  }
-});
+    exclude: ['vue-demi'],
+  },
+})

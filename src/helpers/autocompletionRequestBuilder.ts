@@ -1,28 +1,25 @@
-import { AutocompletionRequest } from '../types';
+import type { AutocompletionRequest } from '../types'
 
 export default (
   autocompletionRequest: AutocompletionRequest,
   input: string,
   sessionToken?: google.maps.places.AutocompleteSessionToken,
 ): google.maps.places.AutocompletionRequest => {
-  const { bounds, location, ...rest } = autocompletionRequest;
+  const { bounds, location, ...rest } = autocompletionRequest
 
-  const res: google.maps.places.AutocompletionRequest= {
+  const res: google.maps.places.AutocompletionRequest = {
     input,
     ...rest,
-  };
-
-  if (sessionToken) {
-    res.sessionToken = sessionToken;
   }
 
-  if (bounds) {
-    res.bounds = new google.maps.LatLngBounds(...bounds);
-  }
+  if (sessionToken)
+    res.sessionToken = sessionToken
 
-  if (location) {
-    res.location = new google.maps.LatLng(location);
-  }
+  if (bounds)
+    res.bounds = new google.maps.LatLngBounds(...bounds)
 
-  return res;
+  if (location)
+    res.location = new google.maps.LatLng(location)
+
+  return res
 }

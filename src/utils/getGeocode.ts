@@ -1,6 +1,6 @@
 const getGeocode = (args: google.maps.GeocoderRequest): Promise<google.maps.GeocoderResult[]> => {
-  const geocoder = new window.google.maps.Geocoder();
-  const { OK } = window.google.maps.GeocoderStatus;
+  const geocoder = new window.google.maps.Geocoder()
+  const { OK } = window.google.maps.GeocoderStatus
 
   return new Promise((resolve, reject) => {
     geocoder.geocode(
@@ -9,12 +9,13 @@ const getGeocode = (args: google.maps.GeocoderRequest): Promise<google.maps.Geoc
         results: google.maps.GeocoderResult[] | null,
         status: google.maps.GeocoderStatus,
       ) => {
-        if (status !== OK) return reject(status);
+        if (status !== OK)
+          return reject(status)
 
-        return resolve(results || []);
-      }
-    );
-  });
-};
+        return resolve(results || [])
+      },
+    )
+  })
+}
 
-export default getGeocode;
+export default getGeocode

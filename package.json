@@ -1,39 +1,40 @@
 {
   "name": "v-use-places-autocomplete",
   "version": "1.0.1",
+  "packageManager": "pnpm@7.3.0",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wobsoriano/v-use-places-autocomplete.git"
+  },
   "keywords": [
     "vue",
     "places",
     "autocomplete"
   ],
-  "main": "./dist/v-use-places-autocomplete.umd.js",
-  "module": "./dist/v-use-places-autocomplete.es.js",
-  "types": "./dist/index.d.ts",
+  "sideEffects": false,
   "exports": {
     ".": {
-      "import": "./dist/v-use-places-autocomplete.es.js",
-      "require": "./dist/v-use-places-autocomplete.umd.js"
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
     }
   },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "tsc && vite build",
-    "build:watch": "yarn build --watch",
+    "build-fast": "tsup src/index.ts --format cjs,esm",
+    "build": "nr build-fast --dts-resolve",
+    "lint": "eslint .",
+    "prepublishOnly": "nr build",
+    "release": "bumpp && npm publish",
     "switch:2": "vue-demi-switch 2 vue2",
     "switch:3": "vue-demi-switch 3",
-    "test": "jest"
-  },
-  "devDependencies": {
-    "@types/google.maps": "^3.49.2",
-    "@types/node": "^16.4.10",
-    "tsup": "^6.1.2",
-    "typescript": "^4.3.2",
-    "vue": "^3.2.0"
-  },
-  "dependencies": {
-    "@googlemaps/js-api-loader": "^1.14.3",
-    "@vueuse/core": "^8.7.5",
-    "vue-demi": "^0.13.1"
+    "test": "vitest run"
   },
   "peerDependencies": {
     "@vue/composition-api": "^1.1.0",
@@ -44,11 +45,27 @@
       "optional": true
     }
   },
-  "files": [
-    "dist"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wobsoriano/v-use-places-autocomplete.git"
+  "dependencies": {
+    "@googlemaps/js-api-loader": "^1.14.3",
+    "@vueuse/core": "^8.7.5",
+    "vue-demi": "^0.13.1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.25.2",
+    "@antfu/ni": "^0.16.2",
+    "@types/google.maps": "^3.49.2",
+    "@types/node": "^16.4.10",
+    "bumpp": "^8.2.1",
+    "eslint": "^8.18.0",
+    "jsdom": "^20.0.0",
+    "pnpm": "^7.3.0",
+    "tsup": "^6.1.2",
+    "typescript": "^4.3.2",
+    "vitest": "^0.16.0",
+    "vue": "^3.2.0",
+    "vue-test-composables": "^0.1.5"
+  },
+  "eslintConfig": {
+    "extends": "@antfu"
   }
 }
