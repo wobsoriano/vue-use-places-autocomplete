@@ -5,7 +5,7 @@
 ## Installation
 
 ```bash
-$ npm install vue-use-places-autocomplete # or pnpm/yarn
+npm install vue-use-places-autocomplete
 ```
 
 ## Usage
