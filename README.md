@@ -53,11 +53,11 @@ export default defineComponent({
 
 ```js
 const {
-    suggestions,
-    loading,
-    sessionToken,
-    refreshSessionToken
-} = usePlacesAutocomplete(query, options);
+  suggestions,
+  loading,
+  sessionToken,
+  refreshSessionToken
+} = usePlacesAutocomplete(query, options)
 ```
 
 ### Options
@@ -125,4 +125,4 @@ console.log('Coordinates: ', { lat, lng });
 
 ### License
 
-[MIT License](http://opensource.org/licenses/MIT).
+MIT
