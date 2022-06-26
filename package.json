@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.14.3",
-    "@vueuse/core": "^6.3.2",
+    "@vueuse/core": "^8.7.5",
     "vue-demi": "^0.13.1"
   },
   "peerDependencies": {
