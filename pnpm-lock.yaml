@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@antfu/eslint-config': ^0.34.0
-  '@googlemaps/js-api-loader': ^1.15.0
+  '@googlemaps/js-api-loader': ^1.15.1
   '@types/google.maps': ^3.51.0
   '@types/node': ^16.4.10
   '@vueuse/core': ^9.9.0
