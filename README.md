@@ -1,8 +1,6 @@
 # vue-use-places-autocomplete
 
-[![npm (tag)](https://img.shields.io/npm/v/vue-use-places-autocomplete?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/vue-use-places-autocomplete) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/vue-use-places-autocomplete?style=flat&colorA=000000&colorB=000000) ![NPM](https://img.shields.io/npm/l/vue-use-places-autocomplete?style=flat&colorA=000000&colorB=000000)
-
-📍 Vue 3 composable for Google Maps Places Autocomplete.
+📍 Vue composable for Google Maps Places Autocomplete.
 
 ## Installation
 
