@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "useDefineForClassFields": true,
+    "target": "es2020",
     "module": "esnext",
-    "moduleResolution": "node",
     "strict": true,
-    "jsx": "preserve",
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
-    "skipLibCheck": true
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "allowJs": true,
+    "noEmit": true,
+    "outDir": "dist",
+    "resolveJsonModule": true
   }
 }
