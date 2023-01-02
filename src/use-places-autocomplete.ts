@@ -54,16 +54,16 @@ export default function usePlacesAutocomplete(query: Ref<string>, {
 
   const initializeService = () => {
     if (!window.google) {
-      console.error('[v-use-places-autocomplete]: Google script not loaded')
+      console.error('[vue-use-places-autocomplete]: Google script not loaded')
       return
     }
 
     if (!window.google.maps) {
-      console.error('[v-use-places-autocomplete]: Google maps script not loaded')
+      console.error('[vue-use-places-autocomplete]: Google maps script not loaded')
       return
     }
     if (!window.google.maps.places) {
-      console.error('[v-use-places-autocomplete]: Google maps places script not loaded')
+      console.error('[vue-use-places-autocomplete]: Google maps places script not loaded')
       return
     }
 
