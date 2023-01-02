@@ -122,8 +122,8 @@ describe('usePlacesAutocomplete', () => {
     renderComposable(() => usePlacesAutocomplete(query))
     expect(console.error).toHaveBeenCalledTimes(3)
 
-    expect(console.error).toHaveBeenCalledWith('[v-use-places-autocomplete]: Google maps places script not loaded')
-    expect(console.error).toHaveBeenCalledWith('[v-use-places-autocomplete]: Google maps script not loaded')
-    expect(console.error).toHaveBeenCalledWith('[v-use-places-autocomplete]: Google script not loaded')
+    expect(console.error).toHaveBeenCalledWith('[vue-use-places-autocomplete]: Google maps places script not loaded')
+    expect(console.error).toHaveBeenCalledWith('[vue-use-places-autocomplete]: Google maps script not loaded')
+    expect(console.error).toHaveBeenCalledWith('[vue-use-places-autocomplete]: Google script not loaded')
   })
 })

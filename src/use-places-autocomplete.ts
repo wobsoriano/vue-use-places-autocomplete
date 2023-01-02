@@ -1,7 +1,7 @@
 import type { Ref } from 'vue'
-import { onMounted, ref } from 'vue'
-import { debouncedWatch, get, set } from '@vueuse/core'
+import { onMounted, reactive, toRefs, watch } from 'vue'
 import { Loader } from '@googlemaps/js-api-loader'
+import debounceFn from 'debounce-fn'
 import type { AutocompletionRequest, GooglePlacesAutocompleteOptions } from './types'
 import autocompletionRequestBuilder from './helpers/autocompletionRequestBuilder'
 
@@ -14,42 +14,51 @@ export default function usePlacesAutocomplete(query: Ref<string>, {
   onLoadFailed = console.error,
   withSessionToken,
 }: GooglePlacesAutocompleteOptions = {}) {
-  const placesService = ref<google.maps.places.AutocompleteService | undefined>(undefined)
-  const sessionToken = ref<google.maps.places.AutocompleteSessionToken | undefined>(undefined)
-  const suggestions = ref<google.maps.places.AutocompletePrediction[]>([])
-  const loading = ref(false)
+  interface State {
+    placesService: google.maps.places.AutocompleteService | undefined
+    sessionToken: google.maps.places.AutocompleteSessionToken | undefined
+    suggestions: google.maps.places.AutocompletePrediction[]
+    loading: boolean
+  }
+
+  const state = reactive<State>({
+    placesService: undefined,
+    sessionToken: undefined,
+    suggestions: [],
+    loading: false,
+  })
 
   const fetchSuggestions = () => {
-    if (!get(placesService)) {
-      set(suggestions, [])
+    if (!state.placesService) {
+      state.suggestions = []
       return
     }
 
-    if (get(query).length < minLengthAutocomplete || !get(query).length) {
-      set(suggestions, [])
+    if (query.value.length < minLengthAutocomplete || !query.value.length) {
+      state.suggestions = []
       return
     }
 
     const autocompletionReq: AutocompletionRequest = { ...autocompletionRequest }
 
-    set(loading, true)
+    state.loading = true
 
-    get(placesService)?.getPlacePredictions(
+    state.placesService?.getPlacePredictions(
       autocompletionRequestBuilder(
         autocompletionReq,
-        get(query),
-        withSessionToken && get(sessionToken),
+        query.value,
+        withSessionToken && state.sessionToken,
       ), (result) => {
-        set(suggestions, result || [])
-        set(loading, false)
+        state.suggestions = result || []
+        state.loading = false
       },
     )
   }
 
-  debouncedWatch(query, fetchSuggestions, { debounce })
+  watch(query, debounceFn(fetchSuggestions, { wait: debounce }))
 
   const refreshSessionToken = () => {
-    set(sessionToken, new google.maps.places.AutocompleteSessionToken())
+    state.sessionToken = new google.maps.places.AutocompleteSessionToken()
   }
 
   const initializeService = () => {
@@ -67,7 +76,7 @@ export default function usePlacesAutocomplete(query: Ref<string>, {
       return
     }
 
-    set(placesService, new window.google.maps.places.AutocompleteService())
+    state.placesService = new window.google.maps.places.AutocompleteService()
     refreshSessionToken()
     fetchSuggestions()
   }
@@ -91,9 +100,7 @@ export default function usePlacesAutocomplete(query: Ref<string>, {
   })
 
   return {
-    suggestions,
-    loading,
-    sessionToken,
+    ...toRefs(state),
     refreshSessionToken,
   }
 }

@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.15.1",
-    "@vueuse/core": "^9.9.0"
+    "debounce-fn": "^5.1.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.34.0",
