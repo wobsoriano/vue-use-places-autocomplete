@@ -1,5 +1,5 @@
 import type { Ref } from 'vue'
-import { onMounted, readonly, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { debouncedWatch, get, set } from '@vueuse/core'
 import { Loader } from '@googlemaps/js-api-loader'
 import type { AutocompletionRequest, GooglePlacesAutocompleteOptions } from './types'
@@ -91,9 +91,9 @@ export default function usePlacesAutocomplete(query: Ref<string>, {
   })
 
   return {
-    suggestions: readonly(suggestions),
-    loading: readonly(loading),
-    sessionToken: readonly(sessionToken),
+    suggestions,
+    loading,
+    sessionToken,
     refreshSessionToken,
   }
 }
