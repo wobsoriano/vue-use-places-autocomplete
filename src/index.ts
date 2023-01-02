@@ -7,3 +7,8 @@ export {
   getLatLng,
   getGeocode,
 }
+
+export {
+  type GooglePlacesAutocompleteOptions,
+  type AutocompletionRequest,
+} from './types'
