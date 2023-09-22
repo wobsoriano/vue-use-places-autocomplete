@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.16.2",
-    "debounce-fn": "^5.1.2"
+    "perfect-debounce": "^1.0.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.34.0",

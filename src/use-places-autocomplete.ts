@@ -1,7 +1,7 @@
 import type { Ref } from 'vue'
 import { onMounted, reactive, toRefs, watch } from 'vue'
 import { Loader } from '@googlemaps/js-api-loader'
-import debounceFn from 'debounce-fn'
+import { debounce as debounceFn } from 'perfect-debounce'
 import type { AutocompletionRequest, GooglePlacesAutocompleteOptions } from './types'
 import autocompletionRequestBuilder from './helpers/autocompletionRequestBuilder'
 
@@ -55,7 +55,7 @@ export default function usePlacesAutocomplete(query: Ref<string>, {
     )
   }
 
-  watch(query, debounceFn(fetchSuggestions, { wait: debounce }))
+  watch(query, debounceFn(fetchSuggestions, debounce))
 
   const refreshSessionToken = () => {
     state.sessionToken = new google.maps.places.AutocompleteSessionToken()
