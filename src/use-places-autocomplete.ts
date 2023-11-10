@@ -1,6 +1,7 @@
 import type { Ref } from 'vue'
 import { onMounted, reactive, toRefs, watch } from 'vue'
-import { Loader } from '@googlemaps/js-api-loader'
+import pkg from '@googlemaps/js-api-loader';
+const { Loader } = pkg;
 import { debounce as debounceFn } from 'perfect-debounce'
 import type { AutocompletionRequest, GooglePlacesAutocompleteOptions } from './types'
 import autocompletionRequestBuilder from './helpers/autocompletionRequestBuilder'
