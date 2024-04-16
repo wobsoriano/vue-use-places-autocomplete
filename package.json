@@ -15,9 +15,14 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
     }
   },
   "main": "./dist/index.js",
@@ -27,8 +32,7 @@
     "dist"
   ],
   "scripts": {
-    "build-fast": "tsup src/index.ts --format cjs,esm",
-    "build": "pnpm build-fast --dts-resolve",
+    "build": "bunchee",
     "lint": "eslint .",
     "prepublishOnly": "pnpm build",
     "release": "bumpp && npm publish",
@@ -46,15 +50,12 @@
     "@types/google.maps": "^3.55.7",
     "@types/node": "^20.12.7",
     "bumpp": "^9.4.0",
+    "bunchee": "^5.1.2",
     "eslint": "^9.0.0",
     "jsdom": "^24.0.0",
-    "tsup": "^8.0.2",
     "typescript": "^5.4.5",
     "vitest": "^1.5.0",
     "vue": "^3.4.23",
     "vue-test-composables": "^0.1.6"
-  },
-  "eslintConfig": {
-    "extends": "@antfu"
   }
 }
