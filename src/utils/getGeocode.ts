@@ -1,4 +1,4 @@
-const getGeocode = (args: google.maps.GeocoderRequest): Promise<google.maps.GeocoderResult[]> => {
+function getGeocode(args: google.maps.GeocoderRequest): Promise<google.maps.GeocoderResult[]> {
   const geocoder = new window.google.maps.Geocoder()
   const { OK } = window.google.maps.GeocoderStatus
 

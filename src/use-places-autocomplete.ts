@@ -48,7 +48,8 @@ export default function usePlacesAutocomplete(query: Ref<string>, {
         autocompletionReq,
         query.value,
         withSessionToken && state.sessionToken,
-      ), (result) => {
+      ),
+      (result) => {
         state.suggestions = result || []
         state.loading = false
       },

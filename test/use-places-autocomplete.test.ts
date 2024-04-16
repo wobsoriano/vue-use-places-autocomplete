@@ -73,7 +73,7 @@ describe('usePlacesAutocomplete', () => {
   })
 
   it('should return initial object', () => {
-    global.google = getMaps('success')
+    globalThis.google = getMaps('success')
 
     const query = ref('')
     const { result } = renderComposable(() => usePlacesAutocomplete(query, {
@@ -87,7 +87,7 @@ describe('usePlacesAutocomplete', () => {
   })
 
   it('should return correct suggestions', async () => {
-    global.google = getMaps('success', mockSuggestionsData)
+    globalThis.google = getMaps('success', mockSuggestionsData)
 
     const query = ref('')
     const { result } = renderComposable(() => usePlacesAutocomplete(query, {
@@ -107,18 +107,15 @@ describe('usePlacesAutocomplete', () => {
     console.error = vi.fn()
     const query = ref('')
 
-    // @ts-expect-error: Internal
-    delete global.google.maps.places
+    delete globalThis.google.maps.places
     renderComposable(() => usePlacesAutocomplete(query))
     expect(console.error).toHaveBeenCalledTimes(1)
 
-    // @ts-expect-error: Internal
-    delete global.google.maps
+    delete globalThis.google.maps
     renderComposable(() => usePlacesAutocomplete(query))
     expect(console.error).toHaveBeenCalledTimes(2)
 
-    // @ts-expect-error: Internal
-    delete global.google
+    delete globalThis.google
     renderComposable(() => usePlacesAutocomplete(query))
     expect(console.error).toHaveBeenCalledTimes(3)
 

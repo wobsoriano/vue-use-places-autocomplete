@@ -1,7 +1,7 @@
 import type { LatLng } from '../types'
 
-const getLatLng = (result: google.maps.GeocoderResult): Promise<LatLng> => (
-  new Promise((resolve, reject) => {
+function getLatLng(result: google.maps.GeocoderResult): Promise<LatLng> {
+  return new Promise((resolve, reject) => {
     try {
       const latLng = {
         lat: result.geometry.location.lat(),
@@ -13,6 +13,6 @@ const getLatLng = (result: google.maps.GeocoderResult): Promise<LatLng> => (
       return reject(e)
     }
   })
-)
+}
 
 export default getLatLng
