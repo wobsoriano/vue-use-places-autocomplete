@@ -69,37 +69,45 @@ const {
 
 ## Utilities
 
-### getGeocode
+### geocodeByPlaceId
 
-Converts an `address` or `location` or `placeId` and optionally `bounds`, `componentRestrictions`, `region`. It'll be passed as [Geocoding Requests](https://developers.google.com/maps/documentation/javascript/geocoding#GeocodingRequests).
+This function allows to get result by a place id using [Google Maps Geocoder](https://developers.google.com/maps/documentation/javascript/geocoding).
 
-```typescript
-const parameter = {
-  address: "Cebu-Cordova Link Expressway Corp., Antuwanga, Cebu City, Cebu, Philippines",
-  // or
-  placeId: "ChIJk6_7UFmdqTMRgFAxl4KEnUQ",
-};
+```ts
+import { geocodeByPlaceId } from 'vue-use-places-autocomplete'
 
-const results = await getGeocode(parameter);
-console.log('Geocoding results: ', results);
+const results = await geocodeByPlaceId('ChIJk6_7UFmdqTMRgFAxl4KEnUQ')
+```
+
+### geocodeByAddress
+
+This function allows to get results by an address using [Google Maps Geocoder](https://developers.google.com/maps/documentation/javascript/geocoding).
+
+```ts
+import { getGeocode } from 'vue-use-places-autocomplete'
+
+const results = await geocodeByAddress('Manila, Philippines')
+```
+
+### geocodeByLatLng
+
+This function allows to get results by it's coordinates (latitude and longitude) using [Google Maps Geocoder](https://developers.google.com/maps/documentation/javascript/geocoding).
+
+```ts
+import { geocodeByLatLng } from 'vue-use-places-autocomplete'
+
+const results = await geocodeByLatLng({ lat: 14.5995, lng: -120.9842 })
 ```
 
 ### getLatLng
 
-Allows to get the latitude and longitude from the result object of `getGeocode`.
+This functions allows to get the latitude and longitude of a geocoder result.
 
-```typescript
-const parameter = {
-  address: "Cebu-Cordova Link Expressway Corp., Antuwanga, Cebu City, Cebu, Philippines",
-  // or
-  placeId: "ChIJk6_7UFmdqTMRgFAxl4KEnUQ",
-};
+```ts
+import { geocodeByAddress, getLatLng } from 'vue-use-places-autocomplete'
 
-const results = await getGeocode(parameter);
-const latLng = await getLatLng(results[0]);
-
-const { lat, lng } = latLng;
-console.log('Coordinates: ', { lat, lng });
+const results = await geocodeByAddress('Manila, Philippines')
+const { lat, lng } = await getLatLng(results[0])
 ```
 
 ## Credits
