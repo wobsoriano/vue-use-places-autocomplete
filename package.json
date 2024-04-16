@@ -38,7 +38,7 @@
     "vue": "^3.2.0"
   },
   "dependencies": {
-    "@googlemaps/js-api-loader": "^1.16.2",
+    "@googlemaps/js-api-loader": "^1.16.6",
     "perfect-debounce": "^1.0.0"
   },
   "devDependencies": {
