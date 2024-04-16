@@ -3,6 +3,7 @@ import geocodeByLatLng from './utils/geocodeByLatLng'
 import geocodeByAddress from './utils/geocodeByAddress'
 import geocodeByPlaceId from './utils/geocodeByPlaceId'
 import getLatLng from './utils/getLatLng'
+import GooglePlacesAutocomplete from './GooglePlacesAutocomplete'
 
 export {
   usePlacesAutocomplete,
@@ -10,6 +11,7 @@ export {
   geocodeByLatLng,
   geocodeByAddress,
   geocodeByPlaceId,
+  GooglePlacesAutocomplete,
 }
 
 export {
