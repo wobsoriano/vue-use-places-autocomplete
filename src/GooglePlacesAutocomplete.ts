@@ -1,11 +1,11 @@
-import { computed, defineComponent, ref, watch } from 'vue'
+import { computed, defineComponent } from 'vue'
 import type { LoaderOptions } from '@googlemaps/js-api-loader'
-import { type AutocompletionRequest, type GooglePlacesAutocompleteOptions, usePlacesAutocomplete } from '.'
+import { type AutocompletionRequest, usePlacesAutocomplete } from '.'
 
 const GooglePlacesAutocomplete = defineComponent({
   name: 'GooglePlacesAutocomplete',
   props: {
-    modelValue: {
+    query: {
       type: String,
       default: '',
     },
@@ -39,11 +39,11 @@ const GooglePlacesAutocomplete = defineComponent({
       required: false,
     },
   },
-  emits: ['update:modelValue', 'loadFailed'],
+  emits: ['loadFailed'],
   setup(props, { slots, expose, emit }) {
-    const { modelValue, ...rest } = props
+    const { query: _q, ...rest } = props
 
-    const query = ref(modelValue)
+    const query = computed(() => props.query)
 
     const { refreshSessionToken, sessionToken, suggestions, loading } = usePlacesAutocomplete(query, {
       ...rest,
@@ -57,10 +57,6 @@ const GooglePlacesAutocomplete = defineComponent({
       getSessionToken() {
         return sessionToken.value
       },
-    })
-
-    watch(query, (newVal) => {
-      emit('update:modelValue', newVal)
     })
 
     return () => slots.default!({ suggestions: suggestions.value, loading: loading.value })
