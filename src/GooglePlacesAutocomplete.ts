@@ -1,6 +1,7 @@
 import { computed, defineComponent } from 'vue'
 import type { LoaderOptions } from '@googlemaps/js-api-loader'
-import { type AutocompletionRequest, usePlacesAutocomplete } from '.'
+import type { AutocompletionRequest } from './types'
+import usePlacesAutocomplete from './use-places-autocomplete'
 
 const GooglePlacesAutocomplete = defineComponent({
   name: 'GooglePlacesAutocomplete',
