@@ -1,4 +1,4 @@
-name: Publish Any Commit
+name: Preview
 on: [push, pull_request]
 
 jobs:
