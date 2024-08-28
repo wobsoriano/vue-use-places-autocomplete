@@ -42,12 +42,12 @@
     "vue": "^3.2.0"
   },
   "dependencies": {
-    "@googlemaps/js-api-loader": "^1.16.6",
+    "@googlemaps/js-api-loader": "^1.16.8",
     "perfect-debounce": "^1.0.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.14.0",
-    "@types/google.maps": "^3.55.7",
+    "@types/google.maps": "^3.55.12",
     "@types/node": "^20.12.7",
     "bumpp": "^9.4.0",
     "bunchee": "^5.1.2",
