@@ -1,6 +1,5 @@
 import type { Ref } from 'vue'
 import { onMounted, reactive, toRefs, watch } from 'vue'
-import { Loader } from '@googlemaps/js-api-loader'
 import { debounce as debounceFn } from 'perfect-debounce'
 import type { AutocompletionRequest, GooglePlacesAutocompleteOptions } from './types'
 import autocompletionRequestBuilder from './helpers/autocompletionRequestBuilder'
@@ -85,8 +84,11 @@ export default function usePlacesAutocomplete(query: Ref<string>, {
   onMounted(() => {
     const init = async () => {
       try {
-        if (!window.google || !window.google.maps || !window.google.maps.places)
-          await new Loader({ apiKey, ...{ libraries: ['places'], ...apiOptions } }).load()
+        if (!window.google || !window.google.maps || !window.google.maps.places) {
+          const { Loader } = await import('@googlemaps/js-api-loader')
+          const loader = new Loader({ apiKey, ...{ libraries: ['places'], ...apiOptions } })
+          await loader.importLibrary('places')
+        }
 
         initializeService()
       }
