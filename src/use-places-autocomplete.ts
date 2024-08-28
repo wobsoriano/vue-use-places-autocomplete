@@ -86,8 +86,11 @@ export default function usePlacesAutocomplete(query: Ref<string>, {
       try {
         if (!window.google || !window.google.maps || !window.google.maps.places) {
           const { Loader } = await import('@googlemaps/js-api-loader')
-          const loader = new Loader({ apiKey, ...{ libraries: ['places'], ...apiOptions } })
-          await loader.importLibrary('places')
+          const loader = new Loader({ apiKey, ...apiOptions })
+          await Promise.all([
+            loader.importLibrary('maps'),
+            loader.importLibrary('places')
+          ])
         }
 
         initializeService()
