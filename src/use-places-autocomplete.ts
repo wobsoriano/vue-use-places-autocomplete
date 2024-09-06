@@ -2,7 +2,7 @@ import type { Ref } from 'vue'
 import { onMounted, reactive, toRefs, watch } from 'vue'
 import { Loader } from '@googlemaps/js-api-loader'
 import { debounce as debounceFn } from 'perfect-debounce'
-import type { AutocompletionRequest, GooglePlacesAutocompleteOptions } from './types'
+import type { AutocompletionRequest, GooglePlacesAutocompleteOptions, GooglePlacesAutocompleteSuggestion } from './types'
 import autocompletionRequestBuilder from './helpers/autocompletionRequestBuilder'
 
 export default function usePlacesAutocomplete(query: Ref<string>, {
@@ -17,7 +17,7 @@ export default function usePlacesAutocomplete(query: Ref<string>, {
   interface State {
     placesService: google.maps.places.AutocompleteService | undefined
     sessionToken: google.maps.places.AutocompleteSessionToken | undefined
-    suggestions: google.maps.places.AutocompletePrediction[]
+    suggestions: GooglePlacesAutocompleteSuggestion[]
     loading: boolean
   }
 
