@@ -52,3 +52,5 @@ export interface GooglePlacesAutocompleteOptions {
   onLoadFailed?: (error: Error) => void
   withSessionToken?: boolean
 }
+
+export type GooglePlacesAutocompleteSuggestion = google.maps.places.AutocompletePrediction
