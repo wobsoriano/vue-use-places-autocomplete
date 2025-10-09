@@ -51,7 +51,6 @@ const {
 | Key | Type | Default | Description |
 | :----- | :-------- | :---------- | :---------- |
 | `apiKey` | string | `""` | If this parameter is passed, the component will inject the Google Maps JavaScript API using this apiKey. So there's no need to manually add the script tag to your HTML document. |
-| `apiOptions` | [object](https://developers.google.com/maps/documentation/javascript/localization) | `{}` | Object to configure the google script to inject. |
 | `autocompletionRequest` | [object](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest) | `{}` | Autocompletion request object to add restrictions to the search. |
 | `debounce` | number | `300` | The number of milliseconds to delay before making a call to Google Maps API. |
 | `minLengthAutocomplete` | number | `0` | Defines a minimum number of characters needed on the input in order to make requests to the Google's API. |
