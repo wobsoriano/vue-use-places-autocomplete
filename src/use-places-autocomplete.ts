@@ -1,7 +1,7 @@
 import type { Ref } from 'vue'
-import { onMounted, reactive, toRefs, watch } from 'vue'
-import { debounce as debounceFn } from 'perfect-debounce'
 import type { AutocompletionRequest, GooglePlacesAutocompleteOptions, GooglePlacesAutocompleteSuggestion } from './types'
+import { debounce as debounceFn } from 'perfect-debounce'
+import { onMounted, reactive, toRefs, watch } from 'vue'
 import autocompletionRequestBuilder from './helpers/autocompletionRequestBuilder'
 
 export default function usePlacesAutocomplete(query: Ref<string>, {
@@ -94,7 +94,7 @@ export default function usePlacesAutocomplete(query: Ref<string>, {
           const loader = new Loader({ apiKey, ...apiOptions })
           await Promise.all([
             loader.importLibrary('maps'),
-            loader.importLibrary('places')
+            loader.importLibrary('places'),
           ])
         }
 

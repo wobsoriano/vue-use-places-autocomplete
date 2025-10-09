@@ -2,8 +2,8 @@
  * @vitest-environment jsdom
  */
 
-import { ref } from 'vue'
 import { describe, expect, it, vi } from 'vitest'
+import { ref } from 'vue'
 import { renderComposable } from 'vue-composable-testing'
 import { usePlacesAutocomplete } from '../src'
 

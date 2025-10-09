@@ -1,7 +1,8 @@
 {
   "name": "vue-use-places-autocomplete",
+  "type": "module",
   "version": "0.2.3",
-  "packageManager": "pnpm@9.9.0",
+  "packageManager": "pnpm@10.18.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -12,50 +13,43 @@
     "places",
     "autocomplete"
   ],
-  "sideEffects": false,
   "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
-      },
-      "require": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      }
-    }
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "bunchee",
-    "lint": "eslint .",
-    "prepublishOnly": "pnpm build",
-    "release": "bumpp && npm publish",
-    "test": "vitest run"
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "release": "bumpp --commit --push --tag && pnpm publish",
+    "prepublishOnly": "pnpm run build",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
   },
   "peerDependencies": {
     "vue": "^3.2.0"
   },
   "dependencies": {
-    "@googlemaps/js-api-loader": "^1.16.8",
-    "perfect-debounce": "^1.0.0"
+    "@googlemaps/js-api-loader": "^2.0.1",
+    "perfect-debounce": "^2.0.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.27.3",
-    "@types/google.maps": "^3.55.12",
+    "@antfu/eslint-config": "^5.4.1",
+    "@types/google.maps": "^3.58.1",
     "@types/node": "^20.16.2",
-    "bumpp": "^9.5.2",
-    "bunchee": "^5.3.2",
-    "eslint": "^9.9.1",
+    "bumpp": "^10.3.0",
+    "eslint": "^9.36.0",
     "jsdom": "^25.0.0",
+    "tsdown": "^0.15.6",
     "typescript": "^5.5.4",
-    "vitest": "^2.0.5",
-    "vue": "^3.4.38",
+    "vitest": "^3.2.4",
+    "vue": "^3.5.22",
     "vue-composable-testing": "^0.2.0"
   }
 }
