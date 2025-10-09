@@ -1,13 +1,11 @@
 import type { Ref } from 'vue'
-import { onMounted, reactive, toRefs, watch } from 'vue'
-import { Loader } from '@googlemaps/js-api-loader'
-import { debounce as debounceFn } from 'perfect-debounce'
 import type { AutocompletionRequest, GooglePlacesAutocompleteOptions, GooglePlacesAutocompleteSuggestion } from './types'
+import { debounce as debounceFn } from 'perfect-debounce'
+import { onMounted, reactive, toRefs, watch } from 'vue'
 import autocompletionRequestBuilder from './helpers/autocompletionRequestBuilder'
 
 export default function usePlacesAutocomplete(query: Ref<string>, {
   apiKey = '',
-  apiOptions = {},
   autocompletionRequest = {},
   debounce = 300,
   minLengthAutocomplete = 0,
@@ -90,8 +88,15 @@ export default function usePlacesAutocomplete(query: Ref<string>, {
   onMounted(() => {
     const init = async () => {
       try {
-        if (!window.google || !window.google.maps || !window.google.maps.places)
-          await new Loader({ apiKey, ...{ libraries: ['places'], ...apiOptions } }).load()
+        if (!window.google || !window.google.maps || !window.google.maps.places) {
+          // @ts-expect-error: Types not updated
+          const { setOptions, importLibrary } = await import('@googlemaps/js-api-loader')
+          setOptions({
+            key: apiKey,
+            libraries: ['places']
+          })
+          await Promise.all([importLibrary('maps'), importLibrary('places')])
+        }
 
         initializeService()
       }
