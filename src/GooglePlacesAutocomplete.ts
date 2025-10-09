@@ -1,4 +1,3 @@
-import type { LoaderOptions } from '@googlemaps/js-api-loader'
 import type { AutocompletionRequest } from './types'
 import { computed, defineComponent } from 'vue'
 import usePlacesAutocomplete from './use-places-autocomplete'
@@ -13,11 +12,6 @@ const GooglePlacesAutocomplete = defineComponent({
     apiKey: {
       type: String,
       default: '',
-      required: false,
-    },
-    apiOptions: {
-      type: Object as () => Partial<LoaderOptions>,
-      default: () => ({}),
       required: false,
     },
     autocompletionRequest: {
