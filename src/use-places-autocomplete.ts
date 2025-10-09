@@ -34,6 +34,11 @@ export default function usePlacesAutocomplete(query: Ref<string>, {
       return
     }
 
+    if (typeof query.value !== 'string') {
+      state.suggestions = []
+      return
+    }
+
     if (query.value.length < minLengthAutocomplete || !query.value.length) {
       state.suggestions = []
       return
