@@ -6,7 +6,6 @@ import autocompletionRequestBuilder from './helpers/autocompletionRequestBuilder
 
 export default function usePlacesAutocomplete(query: Ref<string>, {
   apiKey = '',
-  apiOptions = {},
   autocompletionRequest = {},
   debounce = 300,
   minLengthAutocomplete = 0,
@@ -90,19 +89,13 @@ export default function usePlacesAutocomplete(query: Ref<string>, {
     const init = async () => {
       try {
         if (!window.google || !window.google.maps || !window.google.maps.places) {
-          const { Loader } = await import('@googlemaps/js-api-loader')
-          const loader = new Loader({
-            apiKey,
-            libraries: ['places'],
-            ...apiOptions,
+          // @ts-expect-error: Types not updated
+          const { setOptions, importLibrary } = await import('@googlemaps/js-api-loader')
+          setOptions({
+            key: apiKey,
+            libraries: ['places']
           })
-
-          await (loader as any).load()
-
-          await Promise.all([
-            google.maps.importLibrary('maps'),
-            google.maps.importLibrary('places'),
-          ])
+          await Promise.all([importLibrary('maps'), importLibrary('places')])
         }
 
         initializeService()

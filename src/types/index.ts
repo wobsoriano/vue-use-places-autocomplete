@@ -1,5 +1,3 @@
-import type { LoaderOptions } from '@googlemaps/js-api-loader'
-
 export interface LatLng {
   lat: number
   lng: number
@@ -45,7 +43,7 @@ export interface AutocompletionRequest {
 
 export interface GooglePlacesAutocompleteOptions {
   apiKey?: string
-  apiOptions?: Partial<LoaderOptions>
+  // apiOptions?: Partial<LoaderOptions>
   autocompletionRequest?: AutocompletionRequest
   debounce?: number
   minLengthAutocomplete?: number
