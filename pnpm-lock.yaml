@@ -45,9 +45,9 @@ importers:
       vue:
         specifier: ^3.4.38
         version: 3.4.38(typescript@5.5.4)
-      vue-test-composables:
-        specifier: ^0.1.6
-        version: 0.1.6(vue@3.4.38(typescript@5.5.4))
+      vue-composable-testing:
+        specifier: ^0.2.0
+        version: 0.2.0(vue@3.4.38(typescript@5.5.4))
 
 packages:
 
@@ -1929,17 +1929,9 @@ packages:
     resolution: {integrity: sha512-LaNjtRWUBY++zB5nE/NwcaoMylSPk+S+ZHNB1TzdbMJMny6dynpAGt7X/tl/QYq3TIeE6nxHppbo2LGymrG5Pw==}
     engines: {node: '>=10'}
 
-  p-timeout@6.1.2:
-    resolution: {integrity: sha512-UbD77BuZ9Bc9aABo74gfXhNvzC9Tx7SxtHSh1fxvx3jTLLYvmVhiQZZrJzqqU0jKbN32kb5VOKiLEQI/3bIjgQ==}
-    engines: {node: '>=14.16'}
-
   p-try@2.2.0:
     resolution: {integrity: sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==}
     engines: {node: '>=6'}
-
-  p-wait-for@5.0.2:
-    resolution: {integrity: sha512-lwx6u1CotQYPVju77R+D0vFomni/AqRfqLmqQ8hekklqZ6gAY9rONh7lBQ0uxWMkC2AuX9b2DVAl8To0NyP1JA==}
-    engines: {node: '>=12'}
 
   package-json-from-dist@1.0.0:
     resolution: {integrity: sha512-dATvCeZN/8wQsGywez1mzHtTlP22H8OEfPrVMLNr4/eGa+ijtLn/6M5f0dY8UKNrC2O9UCU6SSoG3qRKnt7STw==}
@@ -2470,31 +2462,16 @@ packages:
       jsdom:
         optional: true
 
-  vue-demi@0.13.11:
-    resolution: {integrity: sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==}
-    engines: {node: '>=12'}
-    hasBin: true
+  vue-composable-testing@0.2.0:
+    resolution: {integrity: sha512-5wDxPKCIb8wZ2HkYK6BDeRW2OAdiMIVKuywXgRDXqGc63Bwsa+qCeGOQZ/Q3B1hzYJXSRO02IswdA7SZjRMoyg==}
     peerDependencies:
-      '@vue/composition-api': ^1.0.0-rc.1
-      vue: ^3.0.0-0 || ^2.6.0
-    peerDependenciesMeta:
-      '@vue/composition-api':
-        optional: true
+      vue: ^3.2.0
 
   vue-eslint-parser@9.4.3:
     resolution: {integrity: sha512-2rYRLWlIpaiN8xbPiDyXZXRgLGOtWxERV7ND5fFAv5qo1D2N9Fu9MNajBNc6o13lZ+24DAWCkQCvj4klgmcITg==}
     engines: {node: ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: '>=6.0.0'
-
-  vue-test-composables@0.1.6:
-    resolution: {integrity: sha512-+ukfNjQo3gT5gt1f8vM8vOEAdbKmu6mcFF/xHsKz74R4Vdwq+65T/OwJkhXy8GTvNj3aw+tg9bQZaL1hYn0mgw==}
-    peerDependencies:
-      '@vue/composition-api': ^1.4.0
-      vue: ^2.6.14 || ^3.2.0
-    peerDependenciesMeta:
-      '@vue/composition-api':
-        optional: true
 
   vue@3.4.38:
     resolution: {integrity: sha512-f0ZgN+mZ5KFgVv9wz0f4OgVKukoXtS3nwET4c2vLBGQR50aI8G0cqbFtLlX9Yiyg3LFGBitruPHt2PxwTduJEw==}
@@ -4488,13 +4465,7 @@ snapshots:
     dependencies:
       p-limit: 3.1.0
 
-  p-timeout@6.1.2: {}
-
   p-try@2.2.0: {}
-
-  p-wait-for@5.0.2:
-    dependencies:
-      p-timeout: 6.1.2
 
   package-json-from-dist@1.0.0: {}
 
@@ -5017,7 +4988,7 @@ snapshots:
       - supports-color
       - terser
 
-  vue-demi@0.13.11(vue@3.4.38(typescript@5.5.4)):
+  vue-composable-testing@0.2.0(vue@3.4.38(typescript@5.5.4)):
     dependencies:
       vue: 3.4.38(typescript@5.5.4)
 
@@ -5033,12 +5004,6 @@ snapshots:
       semver: 7.6.0
     transitivePeerDependencies:
       - supports-color
-
-  vue-test-composables@0.1.6(vue@3.4.38(typescript@5.5.4)):
-    dependencies:
-      p-wait-for: 5.0.2
-      vue: 3.4.38(typescript@5.5.4)
-      vue-demi: 0.13.11(vue@3.4.38(typescript@5.5.4))
 
   vue@3.4.38(typescript@5.5.4):
     dependencies:

@@ -56,6 +56,6 @@
     "typescript": "^5.5.4",
     "vitest": "^2.0.5",
     "vue": "^3.4.38",
-    "vue-test-composables": "^0.1.6"
+    "vue-composable-testing": "^0.2.0"
   }
 }

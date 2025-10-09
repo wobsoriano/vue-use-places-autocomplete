@@ -4,7 +4,7 @@
 
 import { ref } from 'vue'
 import { describe, expect, it, vi } from 'vitest'
-import { renderComposable } from 'vue-test-composables'
+import { renderComposable } from 'vue-composable-testing'
 import { usePlacesAutocomplete } from '../src'
 
 const mockFetchingData = () => new Promise(resolve => setTimeout(resolve, 1000))
@@ -51,7 +51,6 @@ const mockSuggestionsData = [
   },
 ]
 
-// @ts-expect-error: Vite env
 const apiKey = import.meta.env.VITE_PLACES_API_KEY
 
 type Suggestions = google.maps.places.AutocompletePrediction[] | null
