@@ -1,7 +1,7 @@
 {
   "name": "vue-use-places-autocomplete",
   "type": "module",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "packageManager": "pnpm@10.18.0",
   "license": "MIT",
   "repository": {
