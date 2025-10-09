@@ -16,5 +16,6 @@ export {
 
 export {
   type GooglePlacesAutocompleteOptions,
+  type GooglePlacesAutocompleteSuggestion,
   type AutocompletionRequest,
 } from './types'
