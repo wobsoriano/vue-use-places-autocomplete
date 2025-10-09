@@ -25,7 +25,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: node --run build
+        run: pnpm build
 
       - name: Publish to pkg.pr.new
         run: pnpm dlx pkg-pr-new publish --compact --pnpm .
